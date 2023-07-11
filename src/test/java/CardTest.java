@@ -23,14 +23,14 @@ public class CardTest{
         void shouldTestSomething() {
 
             open("http://localhost:7777/");
-            $("[data-test-id=city] input").setValue("Рязань");
+            $("[data-test-id=city] input").setValue("Москва");
             // $("[data-test-id=date] input").click();
             $("[data-test-id=date] input").doubleClick();
             $("[data-test-id=date] input").sendKeys(Keys.BACK_SPACE);
             String meetDate = generateDate(4, "dd.MM.yyyy");
             $("[data-test-id=date] input").setValue(meetDate);
-            $("[data-test-id=name] input").setValue("Джонни Уокер");
-            $("[name='phone']").setValue("+73409514575");
+            $("[data-test-id=name] input").setValue("Иван Петров-Иванов");
+            $("[name='phone']").setValue("+79991234567");
             $("[data-test-id=agreement").click();
             $(byClassName("button")).click();
             $("[data-test-id=notification").shouldHave(Condition.text("Встреча успешно забронирована на " + meetDate), Duration.ofSeconds(15)).shouldBe(visible);
